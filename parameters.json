@@ -1,90 +1,118 @@
 {
-  "brightness": {
-    "min": 0,
-    "max": 255,
-    "default": 80,
-    "description": "Global brightness setting",
-    "type": "cc",
-    "cc": 1
+  "global" : {
+    "brightness": {
+      "min": 0,
+      "max": 255,
+      "default": 80,
+      "description": "Global brightness setting",
+      "type": "range",
+      "cc": 19
+    },
+    "bpm": {
+      "min": 0,
+      "max": 260,
+      "default": 80,
+      "description": "System Beats per Minute",
+      "type": "range",
+      "cc": 23
+    },
+    "blendTime": {
+      "min": 0,
+      "max": 10000,
+      "default": 4000,
+      "description": "Blend time, in milliseconds",
+      "type": "range",
+      "cc": 27
+    },
+    "preset": {
+      "default": 0,
+      "description": "Preset preconfigured with all settings",
+      "type": "step",
+      "values" : [0,1,2,4,5],
+      "cc": 26
+    },
+    "autoAdvancePalette": {
+      "min": 0,
+      "max": 1,
+      "default": 1,
+      "description": "Auto advance palette?",
+      "type": "toggle",
+      "cc": 1
+    },
+    "autoAdvanceDelay": {
+      "min": 10,
+      "max": 180,
+      "default": 60,
+      "description": "Auto advance delay in seconds",
+      "type": "range",
+      "cc": 31
+    },
+    "fixMode": {
+      "default" : "NONE",
+      "description": "Animation fixed mode",
+      "type": "step",
+      "values" : ["RADAR", "RADIATE", "PAUSE", "NONE"],
+      "cc": 3
+    }
   },
-  "preset": {
-    "min": 0,
-    "max": 5,
-    "default": 0,
-    "description": "Preset preconfigured with all settings",
-    "type": "cc",
-    "cc": 2
+  "background" : {
+    "bgPaletteIndex": {
+      "min": 0,
+      "max": 60,
+      "default": 0,
+      "description": "Background palette index",
+      "type": "range",
+      "cc": 16
+    },
+    "bgRotSpeed": {
+      "min": 0,
+      "max": 255,
+      "default": 85,
+      "description": "Background rotation speed. 128 = stop",
+      "type": "range",
+      "cc": 17
+    },
+    "bgLineWidth": {
+      "min": 1,
+      "max": 15,
+      "default": 4,
+      "description": "Background line width. Higher = thinner lines.",
+      "type": "range",
+      "cc": 18
+    }
   },
-  "autoAdvancePalette": {
-    "min": 0,
-    "max": 1,
-    "default": 1,
-    "description": "Auto advance palette?",
-    "type": "note",
-    "note": 17
-  },
-  "autoAdvanceDelay": {
-    "min": 10,
-    "max": 180,
-    "default": 60,
-    "description": "Auto advance delay in seconds",
-    "type": "cc",
-    "cc": 3
-  },
-  "fgAnimationEnable": {
-    "min": 0,
-    "max": 1,
-    "default": 1,
-    "description": "Enable foreground animation pattern",
-    "type": "note",
-    "note": 18
-  },
-  "fgPalette": {
-    "min": 0,
-    "max": 1,
-    "default": 0,
-    "description": "Foreground palette; red stripe or green stripe",
-    "type": "cc",
-    "cc": 16
-  },
-  "fgRotSpeed": {
-    "min": 0,
-    "max": 255,
-    "default": 170,
-    "description": "Foreground rotation speed. 128 = stop",
-    "type": "cc",
-    "cc": 5
-  },
-  "fgLineWidth": {
-    "min": 1,
-    "max": 14,
-    "default": 8,
-    "description": "Foreground line width. Higher = thinner lines.",
-    "type": "cc",
-    "cc": 6
-  },
-  "bgPalette": {
-    "min": 0,
-    "max": 15,
-    "default": 0,
-    "description": "Background palette",
-    "type": "cc",
-    "cc": 7
-  },
-  "bgRotSpeed": {
-    "min": 0,
-    "max": 255,
-    "default": 85,
-    "description": "Background rotation speed. 128 = stop",
-    "type": "cc",
-    "cc": 8
-  },
-  "bgLineWidth": {
-    "min": 1,
-    "max": 15,
-    "default": 4,
-    "description": "Background line width. Higher = thinner lines.",
-    "type": "cc",
-    "cc": 4
+  "foreground" : {
+    "fgAnimationEnable": {
+      "min": 0,
+      "max": 1,
+      "default": 1,
+      "description": "Enable foreground animation pattern",
+      "type": "toggle",
+      "cc": 4
+    },
+    "fgPaletteIndex": {
+      "min": 0,
+      "max": 2,
+      "default": 0,
+      "description": "Foreground palette; red stripe or green stripe",
+      "type": "range",
+      "cc": 20
+    },
+    "fgRotSpeed": {
+      "min": 0,
+      "max": 255,
+      "default": 170,
+      "description": "Foreground rotation speed. 128 = stop",
+      "type": "range",
+      "cc": 21
+    },
+    "fgLineWidth": {
+      "min": 1,
+      "max": 14,
+      "default": 8,
+      "description": "Foreground line width. Higher = thinner lines.",
+      "type": "range",
+      "cc": 22
+    }
   }
 }
