@@ -1,90 +1,90 @@
-[      {
-        "brightness": {
-          "min": 0,
-          "max": 255,
-          "default": 80,
-          "description" : "Global brightness setting"
-        }
-      },
-      {
-        "preset": {
-          "min": 0,
-          "max": 5,
-          "default": 0,
-          "description" : "Preset preconfigured with all settings"
-        }
-      },
-      {
-        "autoAdvancePalette": {
-          "min": 0,
-          "max": 1,
-          "default": 1,
-          "description" : "Auto advance palette?"
-        }
-      },
-      {
-        "autoAdvanceDelay": {
-          "min": 10,
-          "max": 65536,
-          "default": 60,
-          "description" : "Auto advance delay in seconds"
-        }
-      },
-      {
-        "fgAnimationEnable": {
-          "min": 0,
-          "max": 1,
-          "default": 1,
-          "description" : "Enable foreground animation pattern"
-        }
-      },
-      {
-        "fgPalette": {
-          "min": 0,
-          "max": 1,
-          "default": 0,
-          "description" : "Foreground palette; red stripe or green stripe"
-        }
-      },
-      {
-        "fgRotSpeed": {
-          "min": 0,
-          "max": 255,
-          "default": 170,
-          "description" : "Foreground rotation speed. 128 = stop"
-        }
-      },
-      {
-        "fgLineWidth": {
-          "min": 1,
-          "max": 14,
-          "default": 8,
-          "description" : "Foreground line width. Higher = thinner lines."
-        }
-      },
-      {
-        "bgPalette": {
-          "min": 0,
-          "max": 15,
-          "default": 0,
-          "description" : "Background palette"
-        }
-      },
-      {
-        "bgRotSpeed": {
-          "min": 0,
-          "max": 255,
-          "default": 85,
-          "description" : "Background rotation speed. 128 = stop"
-        }
-      },
-      {
-        "bgLineWidth": {
-          "min": 1,
-          "max": 15,
-          "default": 4,
-          "description" : "Background line width. Higher = thinner lines."
-        }
-      }
-
-      ]
+{
+  "brightness": {
+    "min": 0,
+    "max": 255,
+    "default": 80,
+    "description": "Global brightness setting",
+    "type": "cc",
+    "cc": 1
+  },
+  "preset": {
+    "min": 0,
+    "max": 5,
+    "default": 0,
+    "description": "Preset preconfigured with all settings",
+    "type": "cc",
+    "cc": 2
+  },
+  "autoAdvancePalette": {
+    "min": 0,
+    "max": 1,
+    "default": 1,
+    "description": "Auto advance palette?",
+    "type": "note",
+    "note": 17
+  },
+  "autoAdvanceDelay": {
+    "min": 10,
+    "max": 180,
+    "default": 60,
+    "description": "Auto advance delay in seconds",
+    "type": "cc",
+    "cc": 3
+  },
+  "fgAnimationEnable": {
+    "min": 0,
+    "max": 1,
+    "default": 1,
+    "description": "Enable foreground animation pattern",
+    "type": "note",
+    "note": 18
+  },
+  "fgPalette": {
+    "min": 0,
+    "max": 1,
+    "default": 0,
+    "description": "Foreground palette; red stripe or green stripe",
+    "type": "cc",
+    "cc": 16
+  },
+  "fgRotSpeed": {
+    "min": 0,
+    "max": 255,
+    "default": 170,
+    "description": "Foreground rotation speed. 128 = stop",
+    "type": "cc",
+    "cc": 5
+  },
+  "fgLineWidth": {
+    "min": 1,
+    "max": 14,
+    "default": 8,
+    "description": "Foreground line width. Higher = thinner lines.",
+    "type": "cc",
+    "cc": 6
+  },
+  "bgPalette": {
+    "min": 0,
+    "max": 15,
+    "default": 0,
+    "description": "Background palette",
+    "type": "cc",
+    "cc": 7
+  },
+  "bgRotSpeed": {
+    "min": 0,
+    "max": 255,
+    "default": 85,
+    "description": "Background rotation speed. 128 = stop",
+    "type": "cc",
+    "cc": 8
+  },
+  "bgLineWidth": {
+    "min": 1,
+    "max": 15,
+    "default": 4,
+    "description": "Background line width. Higher = thinner lines.",
+    "type": "cc",
+    "cc": 4
+  }
+}

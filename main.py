@@ -1,48 +1,48 @@
-﻿#!/usr/bin/python
-# -*- coding:utf-8 -*-
-
-import SH1106
+import pygame.midi
 import time
-import config
 import traceback
+from config_loader import load_config
+from midi import format_midi_data, map_midi_to_parameters
+from oled import init_display, display_text
 
-from PIL import Image,ImageDraw,ImageFont
+def print_and_display_midi_data(device_id=3):
+    pygame.midi.init()
+    midi_input = pygame.midi.Input(device_id)
 
-try:
-    disp = SH1106.SH1106()
+    disp = init_display()
+    config = load_config()  # Load the JSON configuration
 
-    print("\r\1.3inch OLED")
-    # Initialize library.
-    disp.Init()
-    # Clear display.
-    disp.clear()
+    print("Listening for MIDI input from device 3... (Press Ctrl+C to quit)")
 
-    # Create blank image for drawing.
-    image1 = Image.new('1', (disp.width, disp.height), "WHITE")
-    draw = ImageDraw.Draw(image1)
-    font = ImageFont.truetype('Font.ttf', 20)
-    font10 = ImageFont.truetype('Font.ttf',13)
-    print ("***draw rectangle")
-    draw.line([(0,0),(127,0)], fill = 0)
-    draw.line([(0,0),(0,63)], fill = 0)
-    draw.line([(0,63),(127,63)], fill = 0)
-    draw.line([(127,0),(127,63)], fill = 0)
+    try:
+        while True:
+            try:
+                if midi_input.poll():
+                    midi_events = midi_input.read(10)
+                    for event in midi_events:
+                        data = event[0]
+                        formatted_midi_text = format_midi_data(data)
+                        print("MIDI Data: ", formatted_midi_text)
+                        
+                        # Map MIDI data to parameters
+                        mapped_parameters = map_midi_to_parameters(data, config)
+                        
+                        # Display the mapped parameters on the OLED
+                        if mapped_parameters:
+                            print("\tMapped Parameters:", mapped_parameters)
+                            parameter_name, parameter_value = next(iter(mapped_parameters.items()))
+                            display_text(disp, parameter_name, parameter_value)
+                time.sleep(0.001)  # Reduced sleep time
+            except Exception as e:
+                print(f"Error processing MIDI data: {e}")
+                traceback.print_exc()
+    except KeyboardInterrupt:
+        print("\nExiting...")
 
-    disp.ShowImage(disp.getbuffer(image1))
-    time.sleep(2)
-    
-    print ("***draw text")
-    draw.text((30,0), 'Waveshare ', font = font10, fill = 0)
-    draw.text((28,20), u'微雪电子 ', font = font, fill = 0)
+    finally:
+        midi_input.close()
+        pygame.midi.quit()
+        disp.RPI.module_exit()
 
-    disp.ShowImage(disp.getbuffer(image1))
-    time.sleep(2)
-    
-
-except IOError as e:
-    print(e)
-    
-except KeyboardInterrupt:    
-    print("ctrl + c:")
-    disp.RPI.module_exit()
-    exit()
+if __name__ == "__main__":
+    print_and_display_midi_data()

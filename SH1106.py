@@ -1,4 +1,4 @@
-import config
+import oled_config as config
 import time
 import numpy as np
 
