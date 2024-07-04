@@ -1,3 +1,20 @@
+import pygame.midi
+
+def initialize_midi_output():
+    output_id = 2  # For Akai MidiMix
+    midi_out = pygame.midi.Output(output_id)
+    return midi_out
+
+def turn_on_led(midi_out, note_number):
+    midi_out.note_on(note_number, 127)  # Turn on LED
+
+def turn_off_led(midi_out, note_number):
+    midi_out.note_on(note_number, 0)  # Turn off LED
+
+def close_midi_output(midi_out):
+    midi_out.close()
+    pygame.midi.quit()
+
 def format_midi_data(data):
     status_byte = data[0]
     note = data[1]

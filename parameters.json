@@ -18,7 +18,7 @@
     },
     "blendTime": {
       "min": 0,
-      "max": 10000,
+      "max": 8000,
       "default": 4000,
       "description": "Blend time, in milliseconds",
       "type": "range",
