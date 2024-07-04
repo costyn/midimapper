@@ -28,7 +28,7 @@
       "default": 0,
       "description": "Preset preconfigured with all settings",
       "type": "step",
-      "values" : [0,1,2,4,5],
+      "values" : [0,1,2,3,4,5],
       "cc": 26
     },
     "autoAdvancePalette": {
